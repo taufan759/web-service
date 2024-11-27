@@ -1,0 +1,208 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F4F2;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #495464;
+    color: white;
+    padding: 15px 0;
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 10px; 
+    background-color: transparent; 
+    border-radius: 5px; 
+}
+
+.user-info span {
+    color: white; 
+}
+
+.user-info nav {
+    display: flex; 
+}
+
+.user-info nav button {
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: white; 
+    border: none;       
+    text-decoration: none; 
+    margin-left: 15px; 
+    padding: 10px 15px; 
+    cursor: pointer;    
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; 
+    border-radius: 5px; 
+}
+
+.user-info nav button:hover {
+    color: #495464; 
+    transform: scale(1.1); 
+    background-color: #E8E8E8; 
+}
+
+main {
+    padding: 20px 0;
+}
+
+h2 {
+    color: #495464;
+}
+
+.form-section {
+    background-color: #E8E8E8;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #BBBFCA;
+    border-radius: 5px;
+    background-color: #F4F4F2;
+}
+
+.form-buttons {
+    display: flex; 
+    justify-content: left; 
+}
+
+.form-buttons button {
+    background-color: #BBBFCA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+}
+
+.form-buttons button:hover {
+    transform: scale(1.05); 
+    background-color: #3A474D; 
+}
+
+.tab-navigation {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #E8E8E8;
+    color: #495464;
+    text-align: center;
+}
+
+.tab-button.active {
+    background-color: #495464;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.motivations-section .motivation-card {
+    background-color: #E8E8E8;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #BBBFCA;
+    position: relative;
+}
+
+.motivation-card .author {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #495464;
+}
+
+.motivation-buttons button {
+    background-color: #BBBFCA;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.motivation-buttons button {
+    background-color: #BBBFCA;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+}
+
+.motivation-buttons button:hover {
+    transform: scale(1.05); 
+    background-color: #A8A9C2; 
+}
+
+footer {
+    background-color: #495464;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .header__content, .user-info {
+    flex-direction: column;
+    text-align: center;
+    }
+
+    .user-info nav a {
+    margin: 10px 0 0;
+    }
+}
