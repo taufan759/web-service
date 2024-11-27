@@ -26,7 +26,7 @@
                     </div>
                     <div class="signin-form">
                         <h2 class="form-title">Log in</h2>
-                        <form method="POST" action="{{ route('admin.login') }}" class="register-form" id="login-form">
+                        <form method="POST" action="{{ route('admin.login') }}" id="login-form">
                             @csrf
                             @if(session('success'))
                                 <div class="alert alert-success">{{ session('success') }}</div>
@@ -49,7 +49,7 @@
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                             </div>
-                        </form>                        
+                        </form>                                                
                     </div>
                 </div>
             </div>

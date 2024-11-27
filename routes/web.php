@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth; // Tambahkan ini
 use App\Http\Controllers\Admin\LoginAdminController;
+use App\Http\Controllers\Admin\MotivationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +22,14 @@ Route::post('/admin/login', [LoginAdminController::class, 'login']);
 Route::get('/admin/signup', [LoginAdminController::class, 'showSignUpForm'])->name('admin.signup');
 Route::post('/admin/signup', [LoginAdminController::class, 'signUp']);
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard.index');
-})->middleware('auth')->name('admin.dashboard');
-
-
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [MotivationController::class, 'index'])->name('admin.dashboard');
+    Route::post('/dashboard/store', [MotivationController::class, 'store'])->name('dashboard.store');
+    Route::delete('/dashboard/{id}', [MotivationController::class, 'destroy'])->name('dashboard.destroy');
+    Route::put('/dashboard/{id}', [MotivationController::class, 'update'])->name('dashboard.update');
 });
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect()->route('admin.login');
+})->name('logout');
