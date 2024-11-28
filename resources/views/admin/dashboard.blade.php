@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vigenesia</title>
     <link rel="stylesheet" href="{{ asset('admin/css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
     <!-- Header -->
@@ -14,10 +15,15 @@
             <div class="user-info">
                 <span>Halo, <strong>{{ Auth::user()->name }}</strong></span>
                 <nav>
-                    <a href="" class="button">Settings</a>
+                    <button onclick="window.location='{{ route('profile.settings') }}'" class="btn btn-primary">
+                        <i class="fas fa-cog"></i> Setting
+                    </button>
                     <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                         @csrf
-                        <button type="submit" class="button">Logout</button>
+                        <button type="submit" class="button">
+                            <i class="fas fa-sign-out-alt"></i> 
+                            Logout
+                        </button> 
                     </form>
                 </nav>
             </div>
@@ -31,11 +37,13 @@
             <form action="{{ route('dashboard.store') }}" method="POST">
                 @csrf
                 <textarea name="content" placeholder="Tulis motivasi Anda di sini" required></textarea>
-                <select name="visibility" required>
-                    <option value="private">Private</option>
-                    <option value="public">Public</option>
-                </select>
-                <button type="submit">Submit</button>
+                <div class="form-buttons">
+                    <select name="visibility" required>
+                        <option value="private">Private</option>
+                        <option value="public">Public</option>
+                    </select>
+                    <button type="submit">Submit</button>
+                </div>
             </form>
             
         </section>
@@ -59,12 +67,16 @@
                         <form action="{{ route('dashboard.update', $motivation->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('PUT')
-                            <button type="submit">Edit</button>
+                            <button type="submit">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
                         </form>
                         <form action="{{ route('dashboard.destroy', $motivation->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Hapus</button>
+                            <button type="submit">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
                         </form>
                     </div>
                 </div>

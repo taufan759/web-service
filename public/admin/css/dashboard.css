@@ -41,7 +41,8 @@ header {
     display: flex; 
 }
 
-.user-info nav button {
+.user-info nav a,
+.user-info nav button { 
     background-color: rgba(255, 255, 255, 0.1); 
     color: white; 
     border: none;       
@@ -53,7 +54,8 @@ header {
     border-radius: 5px; 
 }
 
-.user-info nav button:hover {
+.user-info nav a:hover,
+.user-info nav button:hover { 
     color: #495464; 
     transform: scale(1.1); 
     background-color: #E8E8E8; 
@@ -94,7 +96,22 @@ textarea {
 
 .form-buttons {
     display: flex; 
-    justify-content: left; 
+    justify-content: flex-start; 
+    align-items: center; 
+}
+
+.form-buttons select {
+    background-color: #BBBFCA; 
+    color: white;
+    border: none;
+    padding: 10px 5px 10px 10px; 
+    border-radius: 5px;
+    margin-right: 10px; 
+    transition: background-color 0.3s ease; 
+}
+
+.form-buttons select:hover {
+    background-color: #3A474D; 
 }
 
 .form-buttons button {
