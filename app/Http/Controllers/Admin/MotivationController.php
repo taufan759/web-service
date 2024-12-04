@@ -11,11 +11,9 @@ class MotivationController extends Controller
 {
     public function index()
     {
-        // Ambil motivasi publik
-        $otherMotivations = Motivation::where('visibility', 'public')->get();
+        $otherMotivations = Motivation::where('visibility', 'public')->orderBy('created_at', 'desc')->get();
 
-        // Ambil motivasi milik user yang login
-        $myMotivations = Motivation::where('user_id', Auth::id())->get();
+        $myMotivations = Motivation::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
 
         return view('admin.dashboard', compact('myMotivations', 'otherMotivations'));
     }

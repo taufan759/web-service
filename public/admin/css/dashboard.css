@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background-color: #495464;
+    background-color: #0F4C75;
     color: white;
     padding: 15px 0;
 }
@@ -56,9 +56,9 @@ header {
 
 .user-info nav a:hover,
 .user-info nav button:hover { 
-    color: #495464; 
-    transform: scale(1.1); 
-    background-color: #E8E8E8; 
+    color: #1B262C;
+    transform: scale(1.1);
+    background-color: #BBE1FA;
 }
 
 main {
@@ -66,11 +66,11 @@ main {
 }
 
 h2 {
-    color: #495464;
+    color: #1B262C;
 }
 
 .form-section {
-    background-color: #E8E8E8;
+    background-color: #BBE1FA;
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -101,7 +101,7 @@ textarea {
 }
 
 .form-buttons select {
-    background-color: #BBBFCA; 
+    background-color: #0F4C75;
     color: white;
     border: none;
     padding: 10px 5px 10px 10px; 
@@ -111,11 +111,11 @@ textarea {
 }
 
 .form-buttons select:hover {
-    background-color: #3A474D; 
+    background-color: #1B262C;
 }
 
 .form-buttons button {
-    background-color: #BBBFCA;
+    background-color: #3282B8;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -126,7 +126,7 @@ textarea {
 
 .form-buttons button:hover {
     transform: scale(1.05); 
-    background-color: #3A474D; 
+    background-color: #0F4C75;
 }
 
 .tab-navigation {
@@ -140,12 +140,12 @@ textarea {
     border: none;
     cursor: pointer;
     background-color: #E8E8E8;
-    color: #495464;
+    color: #1B262C;
     text-align: center;
 }
 
 .tab-button.active {
-    background-color: #495464;
+    background-color: #0F4C75;
     color: white;
 }
 
@@ -158,12 +158,12 @@ textarea {
 }
 
 .motivations-section .motivation-card {
-    background-color: #E8E8E8;
+    background-color: #BBE1FA;
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #BBBFCA;
+    border-left: 5px solid #1B262C;
     position: relative;
 }
 
@@ -171,37 +171,46 @@ textarea {
     display: block;
     margin-top: 10px;
     font-size: 14px;
-    color: #495464;
+    color: #1B262C;
 }
 
-.motivation-buttons button {
-    background-color: #BBBFCA;
-    color: white;
+.motivation-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
     border: none;
-    padding: 8px 15px;
-    margin-right: 5px;
     cursor: pointer;
     border-radius: 5px;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.motivation-buttons button {
-    background-color: #BBBFCA;
+.btn-edit {
+    background-color: #FFC107;
     color: white;
-    border: none;
-    padding: 8px 15px;
-    margin-right: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.3s ease, background-color 0.3s ease; 
 }
 
-.motivation-buttons button:hover {
-    transform: scale(1.05); 
-    background-color: #A8A9C2; 
+.btn-edit:hover {
+    background-color: #FFA000;
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
 }
 
 footer {
-    background-color: #495464;
+    background-color: #0F4C75;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -212,22 +221,23 @@ footer p {
     margin: 0;
 }
 
-/* Responsif */
 @media (max-width: 768px) {
     .header__content, .user-info {
-    flex-direction: column;
-    text-align: center;
+        flex-direction: column;
+        text-align: center;
     }
 
     .user-info nav a {
-    margin: 10px 0 0;
+        margin: 10px 0 0;
     }
 }
+
 .form-buttons {
     display: flex;
-    gap: 15px; /* Jarak antar tombol */
+    gap: 15px;
     align-items: center;
 }
+
 .btn-warning:hover {
     background-color: green;
 }
@@ -235,4 +245,3 @@ footer p {
 .btn-danger:hover {
     background-color: #c82333;
 }
-

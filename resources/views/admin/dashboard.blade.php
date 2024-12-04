@@ -64,24 +64,18 @@
                     <p>"{{ $motivation->content }}"</p>
                     <span class="author">Ditulis oleh: <strong>{{ $motivation->user->name }}</strong></span>
                     <div class="motivation-buttons">
-                        <form action="{{ route('dashboard.update', $motivation->id) }}" method="POST" style="display: inline;">
+                        <!-- Tombol Edit -->
+                        <button type="button" class="btn btn-edit" onclick="window.location.href='{{ route('dashboard.edit', $motivation->id) }}'">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                    
+                        <!-- Tombol Hapus -->
+                        <form action="{{ route('dashboard.destroy', $motivation->id) }}" method="POST" style="margin: 0;">
                             @csrf
-                            @method('PUT')
-                            <div class="motivation-buttons" style="display: flex; gap: 10px; align-items: center;">
-                                <!-- Tombol Edit -->
-                                <a href="{{ route('dashboard.edit', $motivation->id) }}" class="btn btn-warning" style="color: black; text-decoration: none; padding: 10px 15px; border-radius: 5px; display: inline-block;">
-                                    <i class="fas fa-edit"></i> Edit
-                                </a>
-                            
-                                <!-- Tombol Hapus -->
-                                <form action="{{ route('dashboard.destroy', $motivation->id) }}" method="POST" style="margin: 0;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" style="background-color: #dc3545; border: none; color: #fff; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
-                                        <i class="fas fa-trash"></i> Hapus
-                                    </button>
-                                </form>
-                            </div>                            
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-delete">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
                         </form>
                     </div>
                 </div>

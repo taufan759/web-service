@@ -9,50 +9,68 @@
     <style>
         h2 {
             text-align: center;
+            color: #495464;
             margin-bottom: 20px;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
-        .form-group label {
+
+        label {
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
+            color: #555;
         }
-        .form-group input {
+
+        input[type="text"], input[type="email"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 14px;
+            transition: border-color 0.3s ease;
         }
+
+        input[type="text"]:focus, input[type="email"]:focus {
+            border-color: #007bff;
+        }
+
         .form-buttons {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
         }
+
         .btn {
-            padding: 10px 15px;
+            padding: 10px 15px; 
+            border: none;
             border-radius: 5px;
-            font-size: 14px;
             text-decoration: none;
-            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        .btn-primary {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
+
+        .save-btn {
+            background-color: #28a745;
+            color: white;
         }
-        .btn-secondary {
+
+        .save-btn:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
             background-color: #6c757d;
-            color: #fff;
-            border: none;
+            color: white;
+            font-size: 0.8rem;
         }
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-        .btn-secondary:hover {
+
+        .back-btn:hover {
             background-color: #5a6268;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -79,11 +97,11 @@
                     <input type="email" name="email" id="email" value="{{ $user->email }}" required>
                 </div>
                 <div class="form-buttons">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-save"></i> Simpan Perubahan
+                    <button type="submit" class="btn save-btn">
+                        <i class="fas fa-save"></i> Simpan
                     </button>
-                    <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">
-                        <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
+                    <a href="{{ route('admin.dashboard') }}" class="btn back-btn">
+                        <i class="fas fa-arrow-left"></i> Kembali
                     </a>
                 </div>
             </form>
