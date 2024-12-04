@@ -67,16 +67,21 @@
                         <form action="{{ route('dashboard.update', $motivation->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('PUT')
-                            <button type="submit">
-                                <i class="fas fa-edit"></i> Edit
-                            </button>
-                        </form>
-                        <form action="{{ route('dashboard.destroy', $motivation->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">
-                                <i class="fas fa-trash"></i> Hapus
-                            </button>
+                            <div class="motivation-buttons" style="display: flex; gap: 10px; align-items: center;">
+                                <!-- Tombol Edit -->
+                                <a href="{{ route('dashboard.edit', $motivation->id) }}" class="btn btn-warning" style="color: black; text-decoration: none; padding: 10px 15px; border-radius: 5px; display: inline-block;">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                            
+                                <!-- Tombol Hapus -->
+                                <form action="{{ route('dashboard.destroy', $motivation->id) }}" method="POST" style="margin: 0;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" style="background-color: #dc3545; border: none; color: #fff; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+                                        <i class="fas fa-trash"></i> Hapus
+                                    </button>
+                                </form>
+                            </div>                            
                         </form>
                     </div>
                 </div>
@@ -113,5 +118,15 @@
             document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
         }
     </script>
+    <script>
+        document.querySelectorAll('.motivation-buttons form').forEach(form => {
+            form.addEventListener('submit', function (event) {
+                if (!confirm('Apakah Anda yakin ingin menghapus motivasi ini?')) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+    
     </body>
     </html>

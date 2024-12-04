@@ -40,6 +40,12 @@ class MotivationController extends Controller
     return redirect()->route('admin.dashboard')->with('success', 'Motivation added successfully!');
 }
 
+public function edit($id)
+{
+    $motivation = Motivation::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+    return view('admin.edit', compact('motivation'));
+}
+
 
     public function destroy($id)
     {
@@ -53,14 +59,12 @@ class MotivationController extends Controller
     {
         $request->validate([
             'content' => 'required|string|max:255',
+            'visibility' => 'required|in:private,public'
         ]);
 
         $motivation = Motivation::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
-        $motivation->update([
-            'content' => $request->content,
-            'visibility' => $request->visibility ?? 'private',
-        ]);
-
+        $motivation->update($request->only(['content', 'visibility']));
+    
         return redirect()->route('admin.dashboard')->with('success', 'Motivasi berhasil diperbarui.');
     }
 }

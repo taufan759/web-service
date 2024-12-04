@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth; 
 use App\Http\Controllers\Admin\LoginAdminController;
 use App\Http\Controllers\Admin\MotivationController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dashboard/store', [MotivationController::class, 'store'])->name('dashboard.store');
     Route::delete('/dashboard/{id}', [MotivationController::class, 'destroy'])->name('dashboard.destroy');
     Route::put('/dashboard/{id}', [MotivationController::class, 'update'])->name('dashboard.update');
+    Route::get('/profile/settings', [ProfileController::class, 'settings'])->name('profile.settings');
+    Route::post('/profile/settings', [ProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/dashboard/{id}/edit', [MotivationController::class, 'edit'])->name('dashboard.edit');
+
 });
 
 Route::post('/logout', function () {
